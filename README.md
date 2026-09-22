@@ -1,8 +1,8 @@
 # Idea Vault — Kumpulan Ide Projek Hackathon Tema RWA
 
-Koleksi 5 ide projek hackathon siap dipilih dan dikembangkan, tema utama **Real World Assets (RWA)** — kombinasi dengan **ZK** atau **AI** hanya dipakai bila esensial untuk mekanisme, bukan tempelan. Hasil kurasi dari **10 ide** hasil riset September 2026 (5 sudut global + 5 sudut ASEAN), dipilih berdasarkan kriteria penilaian di bawah.
+Koleksi 6 ide projek hackathon siap dipilih dan dikembangkan, tema utama **Real World Assets (RWA)** — kombinasi dengan **ZK** atau **AI** hanya dipakai bila esensial untuk mekanisme, bukan tempelan. Dua batch riset: batch pertama (10 ide, 5 terpilih, 2 dieliminasi pengguna) dan batch kedua September 2026 (5 kandidat baru, 3 terpilih — fokus likuiditas sekunder & oracle NAV). Dipilih berdasarkan kriteria penilaian di bawah.
 
-> **Cara pakai:** mulai dari tabel navigasi, baca file ide yang menarik, cek skenario demo day dan tabel kelemahan sebelum memutuskan. Rekomendasi utama: **KopraGuard** (peringkat #1).
+> **Cara pakai:** mulai dari tabel navigasi, baca file ide yang menarik, cek skenario demo day dan tabel kelemahan sebelum memutuskan. Rekomendasi batch pertama: **BoundProof** (#2). Rekomendasi batch kedua: **ClearExit** (B#1).
 
 ---
 
@@ -10,11 +10,14 @@ Koleksi 5 ide projek hackathon siap dipilih dan dikembangkan, tema utama **Real 
 
 | # | File | Projek | Ringkasan | Teknologi | Ranking |
 |---|---|---|---|---|---|
-| 1 | [01-kopraguard.md](01-kopraguard.md) | **KopraGuard** | Proof-of-backing simpanan koperasi: ledger liabilitas terverifikasi anggota + circuit breaker on-chain mencegah Ponzi tumbuh | RWA + ZK | **#1** |
 | 2 | [02-boundproof.md](02-boundproof.md) | **BoundProof** | Proof-of-backing token treasury/fund dengan input zkTLS terikat sumber + nullifier registry anti double-backing | RWA + ZK | #2 |
 | 3 | [03-defaultlens.md](03-defaultlens.md) | **DefaultLens** | Registry kejadian kredit machine-readable dengan definisi parametrik (Fitch-style vs manager-style) + hook waterfall kontrak | RWA + AI | #3 |
-| 4 | [04-padalaproof.md](04-padalaproof.md) | **PadalaProof** | Kredensial kredit dari streak remitansi OFW via zkTLS; cicilan auto-split dari remitansi masuk | RWA + ZK | #4 |
 | 5 | [05-carryx.md](05-carryx.md) | **CarryX** | Implementasi pertama FRS (token negative-carry): biaya simpan ter-encode on-chain, q(t) decay + adapter ERC-4626 sadar-carry | RWA | #5 |
+| 6 | [06-clearexit.md](06-clearexit.md) | **ClearExit** | Rail exit lelang harga seragam (uniform-price batch auction) untuk token RWA redeemable: splitter dapat harga identik, proration on-chain, kurator dihapus | RWA | **B#1** |
+| 7 | [07-pulseband.md](07-pulseband.md) | **PulseBand** | Uniswap v4 hook "oracle slip-band" untuk pool RWA: fee meledak saat feed NAV basi, order besar di-revert ke rail redemption, kupon mengalir ke LP | RWA + DeFi hooks | B#2 |
+| 8 | [08-navkeep.md](08-navkeep.md) | **NAVKeep** | Tangga kontinuitas pricing saat feed NAV mati: tier FRESH/STALE/DEAD, harga pasar ter-clamp band menyempit, freeze terjadwal — jawaban untuk kematian oracle | RWA + oracle arch | B#3 |
+
+> Ranking `#1–#5` = batch pertama, `B#1–B#3` = batch kedua (riset September 2026); dua batch tidak digabung-ranking.
 
 ---
 
@@ -44,6 +47,16 @@ Ide-ide di koleksi ini **tidak dibuat dari nol**. Semua diangkat dari riset sumb
 
 ### Stack industri (acuan mekanisme)
 zkMe/zkOBS, zkPass (nullifier registry), DIA ZK (threshold proof), RedStone Settle, Securitize/RedStone Trusted Single Source Oracle, Maple/Centrifuge (via DeepWiki).
+
+### Riset Batch 2 (September 2026) — sumber ide 06–08
+
+Fokus riset: likuiditas sekunder & exit RWA, keandalan oracle NAV, akuntabilitas underwriter, rekonsiliasi dokumen pra-tokenisasi. Via exa + DeepWiki (Uniswap v4-core, Centrifuge, Maple).
+
+- **Paper**: Prop RFQ (ePrint 2026/1739 — exit pricing pressure-aware, mengakui gap order-splitting), Tang (arXiv 2609.15797 — information recovery via trading, teori RWA), Wharton WIFPR (Mei 2026 — speed matching principle)
+- **Produk live**: Symbiotic instant liquidity vault, KPK USDC RWA vault (kurator menetapkan diskon), Upshift RWA Clear (oracle + spread), Uniswap continuous-clearing-auction (uniform price, sisi issuance)
+- **Analisis industri**: Stobox liquidity gap ($33,5B on-chain, >50% idle, kasus BCRED gate $3,7B), Gate Learn/TechFlow (resep slip-band + hooks + yield bridging untuk AMM RWA, post-mortem Nest nALPHA/nBASIS), Tokenomics.net (tiga eksposur oracle RWA, "thirty-day blind window"), RWA Bible (gates & proration baru di dokumen legal)
+- **Hackathon 2026 baru**: CloakSwap RWA (hook privasi eligibility), Index-Fi (basket vault mock oracle), Sugarc/Kyro/FlowFi/Kora/InvoFlow (faktur — padat, AI risk-scoring), Parametrix/Arc Climate Pay/Reflex (asuransi parametrik cuaca — padat)
+- **Enterprise**: POSCO×LG CNS×Injective (receivables + AI review LC), POSCO America×Olea×Intain (rekonsiliasi dokumen pra-onchain), NetNet RWA Desk (premium floor guard issuance)
 
 ---
 
@@ -111,6 +124,26 @@ Dari 10 ide hasil riset (5 global + 5 ASEAN), lima berikut tidak masuk karena ke
 | TandanToken (replanting sawit) | Demo melibatkan banyak aktor + float 3–4 tahun; paling sulit dipadatkan jadi demo meyakinkan |
 
 Ide-ide ini tetap punya nilai — bisa dihidupkan ulang bila konteks berubah (mis. kemitraan pemerintah tersedia, atau hackathon dengan durasi lebih panjang).
+
+## Ide Tereliminasi oleh Pengguna
+
+| Ide | Alasan |
+|---|---|
+| KopraGuard (01) | Dienalinasi pengguna, September 2026 — tidak akan dipakai; file dihapus |
+| PadalaProof (04) | Dienalinasi pengguna, September 2026 — tidak akan dipakai; file dihapus |
+
+Penomoran file tidak digeser setelah penghapusan (konvensi `01-`, `02-`, ... tetap menunjukkan urutan asli batch pertama).
+
+## Konteks Seleksi Batch 2
+
+Dari riset September 2026 lahir 5 kandidat; 3 masuk (06–08), 2 ditunda, 2 gugur saat verifikasi kebaruan:
+
+| Kandidat | Status | Alasan |
+|---|---|---|
+| **SkinPool** (fee-at-risk escrow underwriter + track record on-chain, grounding DeepWiki Maple) | Ditunda | Mekanisme solid tapi inkremental terhadap StakeLocker Maple; track record registry berbau analitik — dilemahkan untuk demo. Bisa dihidupkan bila butuh sudut kredit privat |
+| **MatchGate** (gate rekonsiliasi lintas dokumen pra-mint dengan AI ekstraksi + rules deterministik, grounding pilot POSCO×Intain) | Ditunda | Grounding enterprise kuat, tapi ruang faktur 2026 sudah padat (Sugarc, Kyro, FlowFi, Kora, InvoFlow) dan mekanisme challenge attester kompleks untuk hackathon |
+| Asuransi parametrik cuaca untuk RWA | Gugur | Terlambat: Parametrix (2 versi), Arc Climate Pay, Reflex, Paramify, Paramora sudah memenuhi niche 2025–2026 |
+| Premium-gated issuance untuk DAT | Gugur | NetNet RWA Desk sudah implementasi (floor guard 1,2× backing, discount cap immutable, ratchet) — kebaruan hilang |
 
 ---
 
