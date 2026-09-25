@@ -1,8 +1,8 @@
 # Idea Vault — Kumpulan Ide Projek Hackathon Tema RWA
 
-Koleksi 11 ide projek hackathon siap dipilih dan dikembangkan, tema utama **Real World Assets (RWA)** — kombinasi dengan **ZK** atau **AI** hanya dipakai bila esensial untuk mekanisme, bukan tempelan. Tiga batch riset: batch pertama (10 ide, 5 terpilih, 2 dieliminasi pengguna), batch kedua September 2026 (5 kandidat, 3 terpilih — fokus likuiditas sekunder & oracle NAV), dan batch ketiga September 2026 (5 kandidat B2C, semuanya terpilih — platform/tools retail untuk aktivitas on-chain RWA). Dipilih berdasarkan kriteria penilaian di bawah.
+Koleksi 16 ide aktif projek hackathon siap dipilih dan dikembangkan, tema utama **Real World Assets (RWA)** — kombinasi dengan **ZK** atau **AI** hanya dipakai bila esensial untuk mekanisme, bukan tempelan. Lima batch riset: batch pertama (10 kandidat, 5 terpilih, 3 kemudian dieliminasi pengguna), batch kedua September 2026 (5 kandidat, 3 terpilih — fokus likuiditas sekunder & oracle NAV), batch ketiga September 2026 (5 kandidat B2C, semuanya terpilih — platform/tools retail untuk aktivitas on-chain RWA), batch keempat September 2026 (5 kandidat dApps, 3 terpilih — dApps konsumen yang memarkir dana tertahan di token RWA ber-yield dan mengembalikan float ke pemiliknya), dan batch kelima September 2026 (5 kandidat DeFi protocol — perp DEX, margin, vault underwriting — 3 terpilih). Dipilih berdasarkan kriteria penilaian di bawah.
 
-> **Cara pakai:** mulai dari tabel navigasi, baca file ide yang menarik, cek skenario demo day dan tabel kelemahan sebelum memutuskan. Rekomendasi batch pertama: **BoundProof** (#2). Rekomendasi batch kedua: **ClearExit** (B#1). Rekomendasi batch ketiga: **PoolParty** (C#1).
+> **Cara pakai:** mulai dari tabel navigasi, baca file ide yang menarik, cek skenario demo day dan tabel kelemahan sebelum memutuskan. Rekomendasi batch pertama: **BoundProof** (#2). Rekomendasi batch kedua: **ClearExit** (B#1). Rekomendasi batch ketiga: **PoolParty** (C#1). Rekomendasi batch keempat: **Pusaka** (D#1). Rekomendasi batch kelima: **MarginYield** (E#1).
 
 ---
 
@@ -20,8 +20,14 @@ Koleksi 11 ide projek hackathon siap dipilih dan dikembangkan, tema utama **Real
 | 11 | [11-bayardiri.md](11-bayardiri.md) | **BayarDiri** | Pinjaman retail ber-kolateral token RWA yield-bearing: accrual kolateral otomatis membayar bunga + pokok — utang menyusut per blok sampai self-liquidation | RWA (lending) | C#3 |
 | 12 | [12-gatecover.md](12-gatecover.md) | **GateCover** | Proteksi parametrik retail terhadap redemption gate: trigger dibaca dari state on-chain fund (queue depth, TWAP diskon NAV), severity-proportional payout | RWA + parametrik | C#4 |
 | 13 | [13-netyield.md](13-netyield.md) | **NetYield** | Vault retail "APY jujur": net APY riil per produk (fee aktual, waiver, carry, biaya exit) + rotasi otomatis sadar-friksi + scorecard publik APY iklan vs nyata | RWA (agregasi) | C#5 |
+| 14 | [14-pusaka.md](14-pusaka.md) | **Pusaka** | Warisan akun RWA: fallback inaktivitas bertingkat (warning → grace → klaim) di akun ERC-4337 + pre-registration ahli waris di identity registry agar transfer token permissioned tidak revert | RWA + ERC-4337 | **D#1** |
+| 15 | [15-arisyield.md](15-arisyield.md) | **ArisYield** | Arisan on-chain dengan pot idle diparkir token T-bill ber-yield: yield terbagi pro-rata berbobot waktu tunggu (rotasi akhir dapat bagian terbesar), undian VRF, kontrak menggantikan bendahara | RWA | D#2 |
+| 16 | [16-jatuhtempo.md](16-jatuhtempo.md) | **JatuhTempo** | Penjadwal liabilitas & target ber-yield: tanggal jatuh tempo jadi input utama, sweep otomatis USDC idle ke token RWA instant-redeem, auto-redeem H-1, auto-bayar di tanggal H | RWA + otomasi on-chain | D#3 |
+| 17 | [17-marginyield.md](17-marginyield.md) | **MarginYield** | Token margin T-bill untuk perp DEX: margin = share vault instant-redeem ber-accrual per-detik, loss/fee diselesaikan auto-redeem hanya slice terpakai, floor RWA 4–5% ungated | RWA + perp margin | **E#1** |
+| 18 | [18-diviperp.md](18-diviperp.md) | **DiviPerp** | Perp ekuitas sadar-dividen & aksi korporat: funding atas indeks total-return, dividend accrual ledger on-chain, adjustment engine atomik saat split/merger (replay insiden Ventuals SPCX) | RWA + perp engine | E#2 |
+| 19 | [19-rateperp.md](19-rateperp.md) | **RatePerp** | Perpetual pada level yield tokenized treasury: kontrak "APY points", index dari accrual rate on-chain + implied rate Pendle TWAP, oracle tak pernah tidur — hedge Fed cut & FOMC 24/7 | RWA + rate derivatif | E#3 |
 
-> Ranking `#1–#5` = batch pertama, `B#1–B#3` = batch kedua (riset September 2026), `C#1–C#5` = batch ketiga B2C (riset September 2026); antar-batch tidak digabung-ranking.
+> Ranking `#1–#5` = batch pertama, `B#1–B#3` = batch kedua (riset September 2026), `C#1–C#5` = batch ketiga B2C (riset September 2026), `D#1–D#3` = batch keempat dApps (riset September 2026), `E#1–E#3` = batch kelima DeFi protocol (riset September 2026); antar-batch tidak digabung-ranking.
 
 ---
 
@@ -71,6 +77,40 @@ Fokus riset B2C: platform/tools retail untuk aktivitas on-chain RWA (akses, lend
 - **Produk & event likuiditas**: BCRED gate $3,7M/$82M (Stobox), RWA Bible gates/proration (Agustus 2026), KPK/Symbiotic/Upshift (ekonomi diskon exit), Alchemix (preseden self-repaying loan 2021 — di luar jendela 6 bulan, kombinasi RWA-nya yang baru)
 - **Fees & transparansi**: FRS (fee tersembunyi level issuer), waiver OUSG dengan tanggal tidak konsisten antar sumber, expense BENJI 0,22%, diskon exit KPK 0,05–3%
 - **Kompetitor hackathon B2C**: RWAGpt + Orbit (agent RWA tanpa policy layer), Index-Fi (basket mock oracle), PawnStars (lending RWA self-minted, AI pricing), Parametrix/Arc Climate Pay/Reflex/Paramify/Paramora (parametrik — semua trigger eksternal fisik)
+
+### Riset Batch 4 (September 2026) — sumber ide 14–16
+
+Fokus riset dApps: aplikasi konsumen yang memarkir dana tertahan di token RWA ber-yield dan mengembalikan float ke pemiliknya. Via exa + DeepWiki (eth-infinitism/account-abstraction).
+
+- **Data Indonesia**: BPS 2025 (16,18% penduduk usia 10+ ikut arisan, DIY 58,82% — via periskop.id/GoodStats Jun 2026), IJEIRC (Mar 2025 — 249 putusan pengadilan arisan online 2018–2024, puncak 2021), OJK (Mei 2025 — peringatan arisan online ponzi), jurnal pidana Surakarta (Mar 2026 — Pasal 486/492 KUHP)
+- **Gelombang ROSCA-onchain 2025–26**: Roda (Arc — escrow + dynamic collateral withholding), CROSCA (DoraHacks — klaim pasar ROSCA global $100B+/tahun), Crosca (Initia), Moigye (VeryChain), LedgerLoop (GNN) — semua pot USDC polos tanpa yield; Observers (Agu 2025) post-mortem gelombang 2016–2022 (Bloinx, Daret, Njangi, Nexspecto)
+- **Pembayaran freelance**: Jobbers 2026 (n=22.847, 62 negara — rata-rata 39 hari invoice-to-cash, platform-mediated 37 hari vs direct 12 hari), Upwork Escrow Instructions (dispute window wajib, "sole discretion" menahan dana), UK Small Business Commissioner 2025 (£26 miliar outstanding, 86 jam/tahun kejar tagihan), Trolley 2026 (93% rela discount demi payout 24 jam); escrow web3: GigRevo (auto-release 7 hari), SolSafeHold, web3escrow, DealBlock, TrustLedger, SmarTrust
+- **Treasury RWA**: Stable Sea×WisdomTree (Agu 2026 — >$5T kas bisnis AS idle, RWA $6B→$31B), ZKsync Prividium (25–40 bps hilang oleh operasi manual), Liquid Treasury $TSY (accrual per-detik + redemption instan 24/7, API-first), ACT Tomorrow's Treasury (Jan 2026), McKinsey via tempo.xyz (nostro 34%)
+- **Warisan crypto**: Chainalysis (2,3–3,7 juta BTC hilang permanen, 11–18% suplai), BofA 2024 ($6 triliun via warisan sampai 2045), Ledger Academy (Des 2025), Startup Fortune (Apr 2026), CryptoSens (Feb 2026), Tangem (Apr 2026); produk Liana/Nunchuk/Sarcophagus/Evoke/Casa/Unchained; DeepWiki ERC-4337 (validAfter/validUntil = building block, logika inactivity-recovery harus custom)
+- **Deposit sewa**: TDS Statistical Briefing 2024/25 (4,7 juta deposit senilai £5,53 miliar di Inggris & Wales), mydeposits (Agu 2025 — landlord menang klaim penuh <20% kasus), property118 (estimasi float skema ±£230 juta/tahun, label estimasi)
+
+### Riset Batch 5 (September 2026) — sumber ide 17–19
+
+Fokus riset DeFi protocol: perp DEX RWA, margin trading, yield trading, vault underwriting. Via exa + DeepWiki (pendle-finance/pendle-core-v2-public). Area yang terverifikasi PADAT dan sengaja dihindari: fixed-yield treasury (Pendle dominan — $69,8B settled, market PT-thBILL/eACRED/USDG/apyUSD), lending kolateral RWA institusional (Aave Horizon $600M deposit, VBILL LTV 88%, weakness NAV-staleness terdokumentasi Mirador Jan 2026), RWA perp polos (TradeXYZ/Ostium/GMTrade/Lighter), covered call manual (xOptions Devpost).
+
+- **Laporan pasar perp**: Alea RWA Perpetuals (Jul 2026 — OI $4,3B 15x YTD; TradeXYZ 56,9%; 65% volume RWA perp di luar jam AS), CoinMarketCap State of the Market (Mei 2026 — ekuitas 5%→28% volume mingguan 4 bulan, $2,7B→$15,6B/minggu; kutipan "dividends ignored → structural premia"; bucket Bonds "single-venue, negligible"; proyeksi $60–80B/minggu Q4 2026), DWF Labs 2 laporan (Mar + Jul 2026 — insiden Ventuals SPCX: crash 45%/30 menit, 405 likuidasi, $1,51M, data provider salah olah split 5:1; risiko sentralisasi oracle; HIP-3: stake 500k HYPE, deployer 50% fee; GMTrade vault per-market 22,6% volume; CFTC framework + Kalshi BTCPERP), Blockscholes (Mar 2026 — Hyperliquid $2B→$8B/hari 2025, proyeksi $32B/hari 2026)
+- **Dokumen venue**: Hyperliquid portfolio margin docs + unified account guide (default USDC-only 0 yield; PM gated $10k/$5M, cap $25M, rate utilization-based, USDC supply cap $1B; kutipan undangan build EVM yield-bearing ERC20), Ostium docs (USDC segregated tanpa yield, $46B kumulatif, 95%+ OI non-kripto)
+- **Yield infra**: Pendle docs + Pendle Print #105 + AiCoin + CoinGecko Apyx (PT-thBILL 5,35%; YT-apyUSD leverage efektif 59x; Apyx $237M TVL; Boros = funding rate swap kripto; IRS TradFi $400T+), DeepWiki pendle-core-v2 (getMarketLnImpliedRate TWAP, PendleChainlinkOracle, SY ERC4626_NOT_REDEEMABLE), Liquid Treasury $TSY (accrual per-detik + redemption instan 24/7)
+- **Ekuitas ter-tokenisasi**: xStocks live di Hyperliquid Agu 2026 (NVDAx/SPYx/QQQx/SKHYx/MUx + wrapper ERC-4626 di HyperEVM; v1 wrapper donation-bug), xChange RFQ engine (Mar 2026)
+
+## Konteks Seleksi Batch 5 (DeFi protocol)
+
+Dari riset DeFi September 2026 lahir 5 kandidat; 3 masuk (17–19), 2 gugur. Kriteria seleksi (diminta pemilik repo): problem yang dicoba diselesaikan, kemenarikan tech untuk hackathon, potensi bisnis pasca-hackathon — **dinilai berbasis data, terutama sisi bisnis**.
+
+| Kandidat | Status | Alasan |
+|---|---|---|
+| **EquityCarry** (vault delta-neutral "internet bond" ekuitas: pegang xStock + short perp sama notional, panen funding + dividen) | Gugur | Kasus bisnis bertumpu funding rate perp ekuitas persisten positif — **tidak ada satu pun sumber riset yang menguantifikasinya**; pola Ethena terbukti rentan episode funding negatif; kompetitor head-start langsung Apyx (yield dividen DAT, $237M TVL dalam hitungan bulan) dengan jalur lebih sederhana tanpa hedge keeper; kategorinya optimasi yield, bukan problem |
+| **FeedGuard** (vault underwriting lintas market dengan exposure cap ditentukan skor kesehatan feed on-chain deterministik) | Gugur | Mekanisme paling elegan di batch, tapi bisnis terlemah: kerugian Ventuals $1,51M menimpa trader via likuidasi, bukan LP — tesis underwriter-menanggung-ekor tidak langsung; model LP vault perp masih ceruk (GMTrade 22,6% volume, "slowly growing"); return underwriting tak terkuantifikasi sumber mana pun; adjacency ke PulseBand (07) = proteksi LP via fee spike vs via exposure cap |
+
+Pemenang batch: **MarginYield** (E#1 — waste terukur langsung: margin 0% vs floor 4,5% + kutipan undangan resmi Hyperliquid + matematika revenue $4,5–9 juta/tahun per $1 miliar adopsi + preseden vault 8,9% APY), **DiviPerp** (E#2 — data insiden paling keras $1,51M + kategori tumbuh 5,7x/kuartal + demo split replay terbaik; posisi bisnis = lisensi engine ke deployer HIP-3, bukan perang venue; risiko regulasi single-name paling nyata — jujur dicatat), **RatePerp** (E#3 — bucket kosong terkonfirmasi + $31B underlying tumbuh 5x/18 bulan + oracle dari state on-chain sendiri + kemitraan issuer instant-redeem paling masuk akal; demand belum terbukti = alasan utama posisi tiga).
+
+Catatan overlap yang dijaga tegas: RatePerp vs Pendle = instrumen directional tanpa maturity vs pasar fixed-yield (komplementer — PT holder jadi pengguna hedging alami); MarginYield vs BayarDiri (11) = margin trading vs pinjaman retail; MarginYield & JatuhTempo (16) berbagi primitif instant-redeem untuk keperluan berbeda (settlement vs kepastian tanggal); DiviPerp berdiri sendiri sebagai satu-satunya ide derivatif ekuitas.
+
 
 ---
 
@@ -174,10 +214,23 @@ Dari riset B2C September 2026 lahir 7 kandidat; 5 masuk (09–13), 2 gugur saat 
 
 Catatan overlap yang disengaja dijaga tegas: NetYield vs CarryX (05) = produk agregasi retail vs standard/adapter satu token; GateCover vs ClearExit (06) = kompensasi holder saat rail macet vs rail exit itu sendiri — komplementer.
 
+## Konteks Seleksi Batch 4 (dApps)
+
+Dari riset dApps September 2026 lahir 5 kandidat; 3 masuk (14–16), 2 ditunda. Kriteria seleksi batch ini: problem yang disolve, kemenarikan di hackathon, potensi bisnis pasca-hackathon.
+
+| Kandidat | Status | Alasan |
+|---|---|---|
+| **YieldEscrow** (escrow milestone freelance ber-yield: dana parkir token T-bill selama hold, bunga ke penerima akhir, diam = bayar) | Ditunda | Kebaruan paling tipis dari lima: auto-release sudah ada (GigRevo), ruang escrow web3 ramai 6+ produk, yield pada hold 39 hari ±0,4% — nominal kecil; satu keluarga mekanisme dengan JaminFlow (ditunda juga), bisa dihidupkan sebagai vertikal kerja bila konteks berubah |
+| **JaminFlow** (deposit sewa + prepaid rent ber-yield: bunga milik penyewa, diam = kembali, landlord klaim ber-stake) | Ditunda | Data keras (£5,53 miliar deposit TDS) tapi cold start dua sisi yang cacat struktural: landlord — pihak pengendali deal — kehilangan float bila ikut, tanpa insentif; lebih kuat sebagai modul produk properti daripada produk berdiri sendiri |
+
+Pemenang batch: **Pusaka** (D#1 — kebaruan terkonfirmasi gap ERC-4337 + masalah irreversible + model bisnis willingness-to-pay terbukti), **ArisYield** (D#2 — data lokal terkeras + demo paling teatrikal), **JatuhTempo** (D#3 — jawaban terkuat "logika inti di kontrak" + jalur B2B jelas).
+
+Catatan overlap yang dijaga tegas: JatuhTempo vs NetYield (13) = engine kepastian tanggal vs produk optimasi APY — komplementer; Pusaka memakai ERC-4337 seperti AgentLeash (10) tapi domainnya berbeda jauh (suksesi aset vs policy agent).
+
 ---
 
 ## Tanggal Riset & Disclaimer
 
-- **Riset: September 2026** (jendela 6 bulan ke belakang; batch kedua dan ketiga via exa + DeepWiki), via pencarian web + exa + deepwiki.
+- **Riset: September 2026** (jendela 6 bulan ke belakang; batch kedua, ketiga, keempat, dan kelima via exa + DeepWiki), via pencarian web + exa + deepwiki.
 - Semua angka pasar (rwa.xyz, Fitch, BSP, Kemenkop, CIFOR, UNESCAP, minimum per-chain BENJI, Form D BUIDL, APY/waiver OUSG) adalah pembacaan saat riset — **bisa basi**. Verifikasi ulang angka kunci sebelum dipakai di pitch/README hackathon.
 - Referensi proyek hackathon adalah karya pihak lain — ide di koleksi ini membangun di atasnya dengan pembeda fitur, bukan menyalin. Sebutkan referensi di kredit saat presentasi.
