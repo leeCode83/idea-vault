@@ -11,7 +11,6 @@ Koleksi 11 ide projek hackathon siap dipilih dan dikembangkan, tema utama **Real
 | # | File | Projek | Ringkasan | Teknologi | Ranking |
 |---|---|---|---|---|---|
 | 2 | [02-boundproof.md](02-boundproof.md) | **BoundProof** | Proof-of-backing token treasury/fund dengan input zkTLS terikat sumber + nullifier registry anti double-backing | RWA + ZK | #2 |
-| 3 | [03-defaultlens.md](03-defaultlens.md) | **DefaultLens** | Registry kejadian kredit machine-readable dengan definisi parametrik (Fitch-style vs manager-style) + hook waterfall kontrak | RWA + AI | #3 |
 | 5 | [05-carryx.md](05-carryx.md) | **CarryX** | Implementasi pertama FRS (token negative-carry): biaya simpan ter-encode on-chain, q(t) decay + adapter ERC-4626 sadar-carry | RWA | #5 |
 | 6 | [06-clearexit.md](06-clearexit.md) | **ClearExit** | Rail exit lelang harga seragam (uniform-price batch auction) untuk token RWA redeemable: splitter dapat harga identik, proration on-chain, kurator dihapus | RWA | **B#1** |
 | 7 | [07-pulseband.md](07-pulseband.md) | **PulseBand** | Uniswap v4 hook "oracle slip-band" untuk pool RWA: fee meledak saat feed NAV basi, order besar di-revert ke rail redemption, kupon mengalir ke LP | RWA + DeFi hooks | B#2 |
@@ -147,6 +146,7 @@ Ide-ide ini tetap punya nilai — bisa dihidupkan ulang bila konteks berubah (mi
 |---|---|
 | KopraGuard (01) | Dienalinasi pengguna, September 2026 — tidak akan dipakai; file dihapus |
 | PadalaProof (04) | Dienalinasi pengguna, September 2026 — tidak akan dipakai; file dihapus |
+| DefaultLens (03) | Dienalinasi pengguna, 25 September 2026 — tidak akan dipakai; file sekarang ada di `bucket/` |
 
 Penomoran file tidak digeser setelah penghapusan (konvensi `01-`, `02-`, ... tetap menunjukkan urutan asli batch pertama).
 
